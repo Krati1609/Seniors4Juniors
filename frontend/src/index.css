@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-cobalt: #1B2E85;
+  --color-cobalt-dark: #121F5C;
+  --color-cobalt-light: #253EAE;
+  --color-butter: #FBF0A8;
+  --color-butter-light: #FFFDE8;
+  --color-butter-dark: #E8D878;
+  --color-crimson: #C8102E;
+  --color-crimson-hover: #A80C25;
+  --color-crimson-dark: #87081D;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --bg-page: #FBF0A8;
+    --bg-surface: #FFFDE8;
+    --bg-surface-inset: #F4E897;
+    --text-primary: #1B2E85;
+    --text-secondary: #253EAE;
+    --text-muted: #3D55C4;
+    --border-color: #1B2E85;
+    --shadow-color: #1B2E85;
+  }
+
+  .dark {
+    --bg-page: #1B2E85;
+    --bg-surface: #121F5C;
+    --bg-surface-inset: #0C1540;
+    --text-primary: #FBF0A8;
+    --text-secondary: #E8D878;
+    --text-muted: #D1C060;
+    --border-color: #FBF0A8;
+    --shadow-color: #FBF0A8;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer utilities {
+  /* Hard Offset Shadows (Solid Palette Colors Only - No Blurry Glows) */
+  .shadow-hard {
+    box-shadow: 4px 4px 0px var(--shadow-color);
+  }
+  .shadow-hard-sm {
+    box-shadow: 2px 2px 0px var(--shadow-color);
+  }
+  .shadow-hard-lg {
+    box-shadow: 6px 6px 0px var(--shadow-color);
+  }
+  .shadow-hard-cobalt {
+    box-shadow: 4px 4px 0px #1B2E85;
+  }
+  .shadow-hard-butter {
+    box-shadow: 4px 4px 0px #FBF0A8;
+  }
+  .shadow-hard-crimson {
+    box-shadow: 4px 4px 0px #C8102E;
+  }
+  .shadow-hard-crimson-sm {
+    box-shadow: 2px 2px 0px #C8102E;
+  }
+
+  /* Tactile Push-Down Button Interactions */
+  .btn-press {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .btn-press:hover {
+    transform: translate(-1px, -1px);
+  }
+  .btn-press:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px transparent !important;
+  }
+
+  /* Card Surface Token */
+  .card-theme {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+}
+
+/* Custom Scrollbar - Flat Palette Colors */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: #1B2E85;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #FBF0A8;
+}

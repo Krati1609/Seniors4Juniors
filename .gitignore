@@ -1,0 +1,33 @@
+# ===== Secrets (never commit) =====
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+*.pem
+*.key
+
+# ===== Python =====
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===== Node / Frontend =====
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+
+# ===== Logs =====
+*.log
+
+# ===== Editor and OS files =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
