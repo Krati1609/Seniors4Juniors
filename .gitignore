@@ -16,6 +16,7 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
+backend/scripts/seed_admins.py
 
 # ===== Node / Frontend =====
 node_modules/
